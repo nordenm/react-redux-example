@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addArticle, resetArticles } from "../actions/index";
 
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         addArticle: article => dispatch(addArticle(article))
-//     };
-// }
-
 const mapDispatchToProps = {
     addArticle, resetArticles
 }
@@ -34,23 +28,24 @@ class ConnectedForm extends Component {
     handleReset = (event) => {
         event.preventDefault();
         this.props.resetArticles();
-    }    
+    }
 
     render() {
         const { title } = this.state;
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div>
+            <form onSubmit={this.handleSubmit} class="center_div">
+                <div class="form-group">
                     <label htmlFor="title">Title</label>
                     <input
                         type="text"
                         id="title"
                         value={title}
                         onChange={this.handleChange}
+                        class="form-control"
                     />
                 </div>
-                <button type="submit">Add article</button>&nbsp;
-                <button type="button" onClick={this.handleReset}>Reset articles</button>
+                <button class="btn btn-light" type="submit">Add article</button>&nbsp;
+                <button class="btn btn-light" type="button" onClick={this.handleReset}>Reset articles</button>
             </form>
         );
     }
