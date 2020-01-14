@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/nordenm/react-redux-example/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/nordenm/react-redux-example/static/js/main.bb0ffd92.chunk.js",
+    "main.js.map": "/nordenm/react-redux-example/static/js/main.bb0ffd92.chunk.js.map",
+    "runtime-main.js": "/nordenm/react-redux-example/static/js/runtime-main.c8b1d45a.js",
+    "runtime-main.js.map": "/nordenm/react-redux-example/static/js/runtime-main.c8b1d45a.js.map",
+    "static/js/2.c1d50ae1.chunk.js": "/nordenm/react-redux-example/static/js/2.c1d50ae1.chunk.js",
+    "static/js/2.c1d50ae1.chunk.js.map": "/nordenm/react-redux-example/static/js/2.c1d50ae1.chunk.js.map",
+    "index.html": "/nordenm/react-redux-example/index.html",
+    "precache-manifest.1b448e57fea1ffa0e4525859f3d7feff.js": "/nordenm/react-redux-example/precache-manifest.1b448e57fea1ffa0e4525859f3d7feff.js",
+    "service-worker.js": "/nordenm/react-redux-example/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/nordenm/react-redux-example/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.c1d50ae1.chunk.js.LICENSE": "/nordenm/react-redux-example/static/js/2.c1d50ae1.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c8b1d45a.js",
+    "static/js/2.c1d50ae1.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.bb0ffd92.chunk.js"
+  ]
+}
