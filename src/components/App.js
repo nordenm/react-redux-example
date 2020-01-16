@@ -4,7 +4,7 @@ import Form from "./Form";
 
 const App = () => (
     <div>
-        <h2 class="center_div">Articles</h2>
+        <h2 className="center_div">Articles</h2>
         <br></br>
         <Form/>
         <br></br>

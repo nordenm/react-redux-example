@@ -1,17 +1,32 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { addArticle, resetArticles } from "../actions/index";
+import { addArticle, resetArticles, editArticle } from "../actions/index";
+import {isEmpty} from "lodash";
 
 const mapDispatchToProps = {
-    addArticle, resetArticles
+    addArticle, resetArticles, editArticle
 }
 
-class ConnectedForm extends Component {
+const mapStateToProps = state => {
+    return { object: state.titleEditing };
+}
+
+class ConnectedForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: ""
+            id: "",
+            title: "",
+            edit: false
         };
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        if (!isEmpty(props.object) && !state.edit) {
+            return { id: props.object.id, title: props.object.title, edit:true }
+        } else {
+            return state;
+        }
     }
 
     handleChange = (event) => {
@@ -19,10 +34,20 @@ class ConnectedForm extends Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
-        const { title } = this.state;
-        this.props.addArticle(title);
-        this.setState({ title: "" });
+        if (!this.state.edit) {
+            event.preventDefault();
+            const { title } = this.state;
+            this.props.addArticle(title);
+            this.setState({title: "", edit:false});
+        }
+        else {
+            event.preventDefault();
+            const editedArticle = { id: this.state.id, title: this.state.title };
+            this.props.editArticle(editedArticle);
+            this.setState({title: "", edit:false});
+        }
+
+        this.setState({id: "", title: "", edit:false});
     }
 
     handleReset = (event) => {
@@ -33,24 +58,24 @@ class ConnectedForm extends Component {
     render() {
         const { title } = this.state;
         return (
-            <form onSubmit={this.handleSubmit} class="center_div">
-                <div class="form-group">
+            <form onSubmit={this.handleSubmit} className="center_div">
+                <div className="form-group">
                     <label htmlFor="title">Title</label>
                     <input
                         type="text"
                         id="title"
                         value={title}
                         onChange={this.handleChange}
-                        class="form-control"
+                        className="form-control"
                     />
                 </div>
-                <button class="btn btn-light" type="submit">Add article</button>&nbsp;
-                <button class="btn btn-light" type="button" onClick={this.handleReset}>Reset articles</button>
+                <button className="btn btn-light" type="submit">Save article</button>&nbsp;
+                <button className="btn btn-light" type="button" onClick={this.handleReset}>Reset articles</button>
             </form>
         );
     }
 }
 
-const Form = connect(null, mapDispatchToProps)(ConnectedForm);
+const Form = connect(mapStateToProps, mapDispatchToProps)(ConnectedForm);
 
 export default Form;

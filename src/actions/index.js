@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, RESET_ARTICLES, DELETE_ARTICLE } from "./action-types";
+import { ADD_ARTICLE, RESET_ARTICLES, DELETE_ARTICLE, EDIT_ARTICLE, EDIT_STORE } from "./action-types";
 
 export function addArticle(payload) {
     return { type: ADD_ARTICLE, payload }
@@ -9,6 +9,13 @@ export function resetArticles() {
 }
 
 export function deleteArticle(payload) {
-    console.log(payload);
-    return { type: DELETE_ARTICLE, payload: payload.id}
+    return { type: DELETE_ARTICLE, payload: payload }
+}
+
+export function editStore(object) {
+    return { type: EDIT_STORE, payload: object };
+}
+
+export function editArticle(object) {
+    return { type: EDIT_ARTICLE, payload: object };
 }
